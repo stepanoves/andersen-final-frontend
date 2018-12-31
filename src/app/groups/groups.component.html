@@ -1,0 +1,12 @@
+<div col-12>
+  Groups List
+  <div class="form-inline">
+    <input class="form-control"  placeholder="Group title"  [(ngModel)]="group">
+    <button class="btn btn-primary" (click)="addGroup()">Add</button>
+    <button class="btn btn-warning" (click)="update()">Update</button>
+  </div>
+  <br>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let group of groups;">{{group.title}}<a [routerLink]="['group', group.id]">Go to</a></li>
+  </ul>
+</div>

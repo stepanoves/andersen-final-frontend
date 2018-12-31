@@ -1,0 +1,19 @@
+<div *ngIf="loggedIn === undefined">Loading...</div>
+<div *ngIf="loggedIn === false" class="logged-out col-3">
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="password">
+  </div>
+  <a routerLink="/register">Register</a>
+  <button (click)="doLogin()" class="btn btn-primary">Sign in</button>
+
+</div>
+<div *ngIf="loggedIn" class="logged-in">
+  <app-main></app-main>
+  <button (click)="doLogout()" class="btn btn-danger log-out">Log Out</button>
+</div>
+

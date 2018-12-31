@@ -1,0 +1,11 @@
+<p>{{ title }}</p>
+<hr>
+<button class="btn btn-primary" *ngIf="!main && !participant" (click)="follow()">Following</button>
+<button class="btn btn-primary" *ngIf="!main && participant" (click)="unfollow()">Unfollow</button>
+<p  *ngIf="main">You are the creator</p>
+<div class="form-group" *ngIf="participant || main">
+  <label for="message">Your message</label>
+  <textarea class="form-control" id="message" rows="3" [(ngModel)]="text"></textarea><br>
+  <button class="btn btn-primary" (click)="addComment()">Add comment</button>
+</div>
+<app-comment *ngFor="let comment of comments" [commentItem]="comment"></app-comment>
